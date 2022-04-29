@@ -1,7 +1,7 @@
 # GifSearcher
 
 Project made width react using https://giphy.com/ api.
-## Available Scripts
+## State
 Not finnished, this is a beta.
 
-### `Accepting pulls`
+`Accepting pulls`
