@@ -1,7 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
-import getGifs from '../services/getGif';
-import Gif from './Gif'
+import getGifs from '../../services/getGif';
+import Gif from '../Gif/Gif'
+import Spinner from '../Spinner/Spinner'
 
 import './ListOfGifs.css';
 
@@ -26,7 +27,7 @@ export default function ListOfGifs({ params }) {
 
 	}, [keyword])
 
-	if (loading)return <i>Searching cool gifs... 🤔</i>
+	if (loading)return <Spinner />
 	
 	return <div className='all-gifs'>
 		{
