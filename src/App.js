@@ -8,14 +8,20 @@ function App() {
   return (
     <div className="App">
       <section className='App-content'>
-        <h1>Los stickers de Gisela</h1>
-        <Link to='/gif/cat'>Gif de gatos</Link>
-        <Link to='/gif/dog'>Gif de perros</Link>
-        <Link to='/gif/Afganistan'>Gif de Afganistán</Link>
+        <Link to='/'><h1>Los stickers de Gisela</h1></Link>
+        <Link to='/search/cat'>Gifs de gatos</Link>
+        <Link to='/search/dog'>Gifs de perros</Link>
+        <Link to='/search/Afganistan'>Gifs de Afganistán</Link>
 
         <Route
-          path='/gif/:keyword'
+          path='/'
+          component={Home} />
+        <Route
+          path='/search/:keyword'
           component={ListOfGifs} />
+        <Route
+          path='/gif/:id'
+          component={Detail} />
       </section>
     </div>
   );

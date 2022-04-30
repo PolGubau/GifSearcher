@@ -1,3 +1,10 @@
+.all-gifs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    align-content: center;
 
-/* .Gif-box{
-} */
+}

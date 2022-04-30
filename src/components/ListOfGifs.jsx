@@ -28,7 +28,7 @@ export default function ListOfGifs({ params }) {
 
 	if (loading)return <i>Searching cool gifs... 🤔</i>
 	
-	return <div>
+	return <div className='all-gifs'>
 		{
 			gifs.map(({ id, title, url }) =>
 				<div className='Gif-box'>
