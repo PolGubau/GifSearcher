@@ -1,7 +1,7 @@
 .Gif{
     display: flex;
     flex-direction: column;
-    width: 10vw;
+    width: 15vw;
     min-width: 200px;
     padding: 5px;
     margin: 5px;
@@ -9,13 +9,15 @@
     border-radius: 10px;
 }
 .Gif img{
-    object-fit: contain;
+    object-fit: cover;
+    height:20vh;
 }
 h4{
+    visibility: hidden;
     color: white;
     font-size: 12px;
     margin: 2px;
     position: absolute;
-    max-width: 8vw;
+    max-width: 40%;
     text-align: left;
 }
