@@ -1,0 +1,33 @@
+.itemCategory {
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    width: fit-content;
+    font-size: 0.8em;
+    padding: 6px 10px;
+    border-radius: 15px;
+}
+
+.itemCategory a {
+    color: black;
+    text-decoration: none;
+
+}
+
+
+/* MOBILE */
+@media (max-width: 850px) {
+    .itemCategory {
+        margin: 10px;
+    }
+
+    .trendsTags {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+
+}

@@ -1,24 +1,13 @@
-/* .all-gifs {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    align-content: center;
-
-} */
-
-
-:root {
-    --results-columns: 2;
-}
 
 
 
 .ListOfGifs {
-    column-count: var(--results-columns);
-    column-gap: .5em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
 }
 
 .ListOfGifs-item {
@@ -28,16 +17,4 @@
     background-color: #eee;
     display: inline-block;
     width: 100%;
-}
-
-@media (min-width: 600px) {
-    :root {
-        --results-columns: 3;
-    }
-}
-
-@media (min-width: 800px) {
-    :root {
-        --results-columns: 4;
-    }
 }

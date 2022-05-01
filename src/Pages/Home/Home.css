@@ -2,3 +2,64 @@
     padding: 5px;
     border-bottom: 5px;
 }
+
+.App-Main {
+    display: grid;
+    gap: 2vw;
+    grid-template-columns: 80vw 16vw;
+    justify-content: center;
+    justify-items: start;
+    align-items: start;
+    align-content: center;
+}
+
+.App-category {
+    text-align: left;
+}
+
+
+.App-title {
+    text-align: left;
+    padding-left: 10vw;
+}
+
+.keyword-input {
+    padding: 1vw;
+    padding-left: 2vw;
+
+    font-size: 1.3vw;
+    border-radius: 50px 0 0 50px;
+    border: none;
+}
+
+.submit-input {
+    padding: 1vw;
+    font-size: 1.3vw;
+    border: none;
+    padding-right: 2vw;
+
+    background-color: rgb(190, 190, 190);
+    border-radius: 0 50px 50px 0;
+}
+
+
+@media (max-width: 850px) {
+    .App-Main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .keyword-input {
+        padding: 2vw;
+        padding-left: 4vw;
+        font-size: 4vw;
+        border-radius: 50px 0 0 50px;
+    }
+
+    .submit-input {
+        padding: 2vw;
+        padding-right: 4vw;
+        font-size: 4vw;
+        border-radius: 0 50px 50px 0;
+    }
+}

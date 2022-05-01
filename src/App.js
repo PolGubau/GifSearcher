@@ -5,20 +5,20 @@ import Detail from './Pages/Detail/index';
 import SearchResults from './Pages/SearchResults/index';
 import { Link, Route } from "wouter";
 import staticContext from './context/staticContext';
-import { GifContextProvider } from './context/GifsContext';
+import { GifsContextProvider } from './context/GifsContext';
 
 function App() {
   return (
     // All lo que esté dentro del provider tendrá acceso al contexto
     // Lo que tiene Provider ya no lee el archivo del conrtexto sino lo que tenga en value
-    <staticContext.Provider value={{ name: 'Pol' }}>
+    <staticContext.Provider value={{ dev: 'Pol' }}>
 
       <div className="App">
         <section className='App-content'>
-          <Link to='/'><h1>Los stickers de Gisela</h1></Link>
+          <Link to='/'><h1>Los gifs de Iván</h1></Link>
 
           {/* En las rutas queremos añadir el contexto de los gifs */}
-          <GifContextProvider>
+          <GifsContextProvider>
 
             <Route
               path='/'
@@ -29,7 +29,7 @@ function App() {
             <Route
               path='/gif/:id'
               component={Detail} />
-          </GifContextProvider>
+          </GifsContextProvider>
 
 
         </section>

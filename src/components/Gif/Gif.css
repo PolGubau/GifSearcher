@@ -6,11 +6,12 @@
     padding: 5px;
     margin: 5px;
     text-decoration: none;
-    border-radius: 10px;
 }
 .Gif img{
     object-fit: cover;
     height:20vh;
+    border-radius: 20px;
+
 }
 h4{
     visibility: hidden;

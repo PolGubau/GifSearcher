@@ -1,0 +1,12 @@
+@media (max-width: 850px) {
+    .trendsBox {
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+
+}
