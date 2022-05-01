@@ -4,11 +4,11 @@ import ListOfGifs from '../../components/ListOfGifs/ListOfGifs'
 import { useGifs } from '../../hooks/useGifs'
 
 
-const subtitle = 'Searching gifs about "' + localStorage.getItem('lastKeyword') + '"';
 
 export default function SearchResults({ params }) {
     const { keyword } = params;
     const { loading, gifs } = useGifs({ keyword })
+    const subtitle = 'Searching gifs about "' + keyword + '"';
 
     return <>
         {subtitle}
