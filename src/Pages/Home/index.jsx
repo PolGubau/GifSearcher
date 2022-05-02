@@ -11,17 +11,13 @@ import useGlobalGifs from '../../hooks/useGlobalGifs';
 
 
 export default function Home() {
-
-
+    
     const gifs = useGlobalGifs()
     const subtitle = localStorage.getItem('lastKeyword')
         ? 'Última Búsqueda ⏰'
         : 'Busca algún GIF 💁‍♀️';
 
-
     const search = localStorage.getItem('lastKeyword')
-
-
     useGifs(search)
 
 
