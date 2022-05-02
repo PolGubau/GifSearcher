@@ -17,10 +17,11 @@ export default function Category({ name, options }) {
 
             <div className='trendsTags'>
 
+
                 {options.map(singleCategory =>
-                    <p className={`itemCategory`}>
-                        
-                        <Link to={`/search/${singleCategory}`}>
+                    <p className={`itemCategory`} key={Date.now()}>
+                          
+                        <Link to={`/search/${singleCategory}`} >
                              {singleCategory} 
                              </Link></p>
                 )}

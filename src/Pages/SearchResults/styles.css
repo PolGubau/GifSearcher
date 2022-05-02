@@ -1,0 +1,60 @@
+.subtitle-line {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 30px;
+}
+
+.subtitle {
+    display: flex;
+    width: fit-content;
+    max-width: 100%;
+    text-align: left;
+    flex-direction: row;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+
+    padding: 0.5% 1%;
+    margin: 10px;
+}
+
+
+.returnButton-subtitle {
+    color: white;
+    text-decoration: none;
+    background-color: #fff;
+    color: black;
+    border-radius: 15px;
+    padding:6px 15px;
+    cursor: pointer;
+}
+
+/* 
+GIFS
+ */
+
+
+
+.last-Options {
+    width: 100%;
+    display: flex;
+}
+
+.nextPageButton {
+    color: white;
+    text-decoration: none;
+    background-color: #fff;
+    color: black;
+    border-radius: 15px;
+    padding:6px 15px;
+    cursor: pointer;
+    font-size: 1em;
+    margin: 30px;
+
+}

@@ -26,6 +26,7 @@ export default function TrendingSearches() {
                 name='Trends'
                 options={trends}
             />
+            
         </div>
     )
 };

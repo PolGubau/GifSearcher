@@ -3,12 +3,12 @@ import { useLocation } from 'wouter'
 
 
 
-export default function InputSearch(props) {
+export default function InputSearch() {
     const [keyword, setKeyword] = useState('')
     // Da el path y el f, una function para navegar por la web
-    const [pushLocation] = useLocation()
+    const [path, pushLocation] = useLocation()
    
-
+console.log(path)
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -22,8 +22,8 @@ export default function InputSearch(props) {
 
     return (
         <form onSubmit={handleSubmit}>
-            <input onChange={handleChange} type="text" name="keyword" id="keyword-input" className='keyword-input' value={keyword} placeholder='De qué quieres ver gifs?' />
-            <input type="submit" value="Buscar! " className='submit-input' />
+            <input onChange={handleChange} type="text" name="keyword" id="keyword-input" className='keyword-input' value={keyword} placeholder='Which is your mood?' />
+            <input type="submit" value="Seach! " className='submit-input' />
         </form>
     )
 };

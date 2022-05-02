@@ -15,7 +15,7 @@ function App() {
 
       <div className="App">
         <section className='App-content'>
-          <Link to='/'><h1>Los gifs de Iván</h1></Link>
+          <Link to='/'><h1>Iván's Gifs</h1></Link>
 
           {/* En las rutas queremos añadir el contexto de los gifs */}
           <GifsContextProvider>
