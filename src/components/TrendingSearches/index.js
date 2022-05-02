@@ -4,7 +4,7 @@ import Category from '../Category'
 
 import './TrendingSearches.css'
 
-export default function TrendingSearches() {
+function TrendingSearches() {
 
 
 
@@ -29,3 +29,36 @@ export default function TrendingSearches() {
         </div>
     )
 };
+
+
+export default function LazyTrending() {
+
+    // Dirá cuando mostrar las trending para no cargar mucho las cosas
+    const [show, setShow] = useState(false)
+
+    useEffect(() => {
+        const onChange = (entries) => {
+
+            // tenemos una entries, ya que solo observamos un elemento, por eseo accedemos al primer valor de la array de entries
+            const el = entries[0]
+            if (el.isIntersecting) {
+                setShow(true)
+            }
+        }
+
+
+        const observer = new IntersectionObserver(onChange, {
+            //    Cuando el elemento esté a menos de 100 píxeles del viewport
+            rootMargin: '100px'
+        })
+        observer.observe(document.getElementById('LazyTrending'))
+
+    })
+
+    return <div id='LazyTrending'>
+        {show ? <TrendingSearches /> : null}
+
+    </div>
+
+
+}
