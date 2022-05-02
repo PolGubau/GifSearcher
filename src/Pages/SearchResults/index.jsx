@@ -1,7 +1,7 @@
 import React from 'react'
-import Spinner from '../../components/Spinner/Spinner'
-import ListOfGifs from '../../components/ListOfGifs/ListOfGifs'
-import { useGifs } from '../../hooks/useGifs'
+import Spinner from 'components/Spinner/Spinner'
+import ListOfGifs from 'components/ListOfGifs/ListOfGifs'
+import { useGifs } from 'hooks/useGifs'
 
 
 
@@ -11,7 +11,7 @@ export default function SearchResults({ params }) {
     const subtitle = 'Searching gifs about "' + keyword + '"';
 
     return <>
-        {subtitle}
+        {decodeURI(subtitle)}
         {loading
             ? <Spinner />
             : <ListOfGifs gifs={gifs} />
