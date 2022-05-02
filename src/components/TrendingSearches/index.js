@@ -1,3 +1,4 @@
+import Spinner from 'components/Spinner/Spinner'
 import useNearScreen from 'hooks/useNearScreen'
 import React,{Suspense} from 'react'
 import './TrendingSearches.css'
@@ -15,12 +16,12 @@ const TrendingSearches = React.lazy(
 
 export default function LazyTrending() {
 
-    const { isNearScreen, fromRef } = useNearScreen({ distance: '200px' })
+    const { isNearScreen, fromRef } = useNearScreen({ distance: '100px' })
 
     return (
         <div ref={fromRef}>
-            <Suspense fallback={'Estamos buscando un GIF acorde con esto 🤔'}>
-            {isNearScreen ? <TrendingSearches /> : null}
+            <Suspense fallback={<><p>Buscando Tendencias</p><Spinner /></>}>
+            {isNearScreen ? <TrendingSearches /> : <Spinner />}
             </Suspense>
         </div>
     )
