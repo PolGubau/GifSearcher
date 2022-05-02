@@ -29,17 +29,11 @@ function TrendingSearches() {
         </div>
     )
 };
-
-
-export default function LazyTrending() {
-
-    // Dirá cuando mostrar las trending para no cargar mucho las cosas
-    const [show, setShow] = useState(false)
-    // Guarda valores que entre renderizados no va a variar
-    const elementRef = useRef()
-
+function useNearScreen ({elementRef}) {
+     // Dirá cuando mostrar las trending para no cargar mucho las cosas
+    const [isNearScreen, setShow] = useState(false)
     useEffect(() => {
-        let observer 
+        let observer
         const onChange = (entries, observer) => {
 
             // tenemos una entries, ya que solo observamos un elemento, por eseo accedemos al primer valor de la array de entries
@@ -56,7 +50,8 @@ export default function LazyTrending() {
         Promise.resolve(
             typeof IntersectionObserver !== 'undefined'
                 ? IntersectionObserver
-                : import('intersection-observers')
+                : import('intersection-observers') 
+                
         ).then(() => {
             observer = new IntersectionObserver(onChange, {
                 //    Cuando el elemento esté a menos de 100 píxeles del viewport
@@ -72,9 +67,21 @@ export default function LazyTrending() {
         return () => observer && observer.disconnect()
 
     })
+    return isNearScreen
+}
+
+
+export default function LazyTrending() {
+
+   
+    // Guarda valores que entre renderizados no va a variar
+    const elementRef = useRef()
+    const isNearScreen = useNearScreen({elementRef})
+
+    
 
     return <div ref={elementRef}>
-        {show ? <TrendingSearches /> : null}
+        {isNearScreen ? <TrendingSearches /> : null}
 
     </div>
 
