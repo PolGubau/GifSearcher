@@ -6,7 +6,7 @@ import { useLocation } from 'wouter'
 export default function InputSearch(props) {
     const [keyword, setKeyword] = useState('')
     // Da el path y el f, una function para navegar por la web
-    const [path, pushLocation] = useLocation()
+    const [pushLocation] = useLocation()
    
 
 

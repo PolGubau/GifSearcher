@@ -1,4 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
+// useRef: Guarda valores que entre renderizados no va a variar
+
 import getTrendingTerms from 'services/getTrendingTermsService'
 import Category from '../Category'
 
@@ -29,8 +31,12 @@ function TrendingSearches() {
         </div>
     )
 };
-function useNearScreen ({elementRef}) {
-     // Dirá cuando mostrar las trending para no cargar mucho las cosas
+function useNearScreen({ distance = '100px' } = {}) {
+
+    const fromRef = useRef()
+
+
+    // Dirá cuando mostrar las trending para no cargar mucho las cosas
     const [isNearScreen, setShow] = useState(false)
     useEffect(() => {
         let observer
@@ -50,15 +56,15 @@ function useNearScreen ({elementRef}) {
         Promise.resolve(
             typeof IntersectionObserver !== 'undefined'
                 ? IntersectionObserver
-                : import('intersection-observers') 
-                
+                : import('intersection-observer')
+
         ).then(() => {
             observer = new IntersectionObserver(onChange, {
                 //    Cuando el elemento esté a menos de 100 píxeles del viewport
-                rootMargin: '100px'
+                rootMargin: distance
             })
             // Observamos el valor actual del valor con esa referencia
-            observer.observe(elementRef.current)
+            observer.observe(fromRef.current)
         })
 
 
@@ -67,23 +73,18 @@ function useNearScreen ({elementRef}) {
         return () => observer && observer.disconnect()
 
     })
-    return isNearScreen
+    return { isNearScreen, fromRef }
 }
 
 
 export default function LazyTrending() {
 
-   
-    // Guarda valores que entre renderizados no va a variar
-    const elementRef = useRef()
-    const isNearScreen = useNearScreen({elementRef})
 
-    
+    const { isNearScreen, fromRef } = useNearScreen({ distance: '200px' })
 
-    return <div ref={elementRef}>
-        {isNearScreen ? <TrendingSearches /> : null}
-
-    </div>
-
-
+    return (
+        <div ref={fromRef}>
+            {isNearScreen ? <TrendingSearches /> : null}
+        </div>
+    )
 }
