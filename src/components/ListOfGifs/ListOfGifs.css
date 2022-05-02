@@ -8,6 +8,7 @@
     align-content: center;
     align-items: center;
     flex-direction: row;
+    min-height: 100vh;
 }
 
 .ListOfGifs-item {

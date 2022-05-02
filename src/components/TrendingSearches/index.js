@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import getTrendingTerms from '../../services/getTrendingTermsService'
 import Category from '../Category'
 
@@ -35,14 +35,19 @@ export default function LazyTrending() {
 
     // Dirá cuando mostrar las trending para no cargar mucho las cosas
     const [show, setShow] = useState(false)
+    // Guarda valores que entre renderizados no va a variar
+    const elementRef = useRef() 
 
     useEffect(() => {
-        const onChange = (entries) => {
+        const onChange = (entries, observer) => {
 
             // tenemos una entries, ya que solo observamos un elemento, por eseo accedemos al primer valor de la array de entries
             const el = entries[0]
             if (el.isIntersecting) {
                 setShow(true)
+                
+                // Una vez entre en el vp, dejas de mirarlo
+                observer.disconnect()
             }
         }
 
@@ -51,11 +56,12 @@ export default function LazyTrending() {
             //    Cuando el elemento esté a menos de 100 píxeles del viewport
             rootMargin: '100px'
         })
-        observer.observe(document.getElementById('LazyTrending'))
+        // Observamos el valor actual del valor con esa referencia
+        observer.observe(elementRef.current)
 
     })
 
-    return <div id='LazyTrending'>
+    return <div ref={elementRef}>
         {show ? <TrendingSearches /> : null}
 
     </div>
