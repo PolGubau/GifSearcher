@@ -1,26 +1,28 @@
-.Gif{
+.Gif {
     display: flex;
     flex-direction: column;
-    width: 15vw;
+    width: 100%;
     min-width: 150px;
     min-height: 150px;
-    height: 15vw;
+    /* height: 15vw; */
     padding: 5px;
     margin: 5px;
     text-decoration: none;
 }
-.Gif img{
-    object-fit: cover;
-    height:20vh;
-    border-radius: 20px;
+
+.Gif img {
+    /* object-fit: cover;
+    height: 20vh; */
+    border-radius: 0 0 20px 20px;
 
 }
-h4{
-    visibility: hidden;
-    color: white;
-    font-size: 12px;
-    margin: 2px;
-    position: absolute;
-    max-width: 40%;
-    text-align: left;
+
+h4 {
+    margin: 0;
+    font-size: 1rem;
+    padding: 0.5rem 1rem 0.4rem;
+    background: #ddd;
+    color: #333;
+    border-radius: 1rem 1rem 0 0;
+    text-align: end;
 }

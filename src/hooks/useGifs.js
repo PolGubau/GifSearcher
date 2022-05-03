@@ -5,9 +5,9 @@ import GifsContext from '../context/GifsContext';
 
 
 
-const INITIAL_PAGE = 0
+const INITIAL_PAGE = 0 
 
-export function useGifs({ keyword='cat' } = { keyword: 'dog' }) {
+export function useGifs({ keyword } = { keyword: 'dog' }) {
     const [loading, setLoading] = useState(false)
     const [loadingNextPage, setLoadingNextPage] = useState(false)
 

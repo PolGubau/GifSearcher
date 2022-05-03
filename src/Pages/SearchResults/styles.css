@@ -1,3 +1,9 @@
+.App-Results{
+    width: 100%;
+    padding: 10px;
+}
+
+
 .subtitle-line {
     width: 80%;
     display: flex;
