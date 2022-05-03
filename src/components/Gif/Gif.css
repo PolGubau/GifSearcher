@@ -10,19 +10,33 @@
     text-decoration: none;
 }
 
-.Gif img {
+.Gif-Img-Title {
     /* object-fit: cover;
     height: 20vh; */
     border-radius: 0 0 20px 20px;
 
 }
+.Gif-Img-No-Title{
+    border-radius:20px;
+}    
 
-h4 {
-    margin: 0;
-    font-size: 1rem;
-    padding: 0.5rem 1rem 0.4rem;
+.title {
     background: #ddd;
-    color: #333;
     border-radius: 1rem 1rem 0 0;
-    text-align: end;
+    color: #333;
+    font-size: 1rem;
+    margin: 0;
+    text-align: end;    
+    padding: 5px 15px;
+
+}
+
+.NoTitle {
+    background: #ddd;
+    border-radius: 1rem 1rem 0 0;
+    color: #333;
+    font-size: 1rem;
+    margin: 0;
+    text-align: end;    
+
 }
