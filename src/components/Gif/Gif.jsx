@@ -3,7 +3,7 @@ import { Link } from "wouter";
 
 import './Gif.css';
 
-export default function Gif({ title, url, id, haveTitle = true }) {
+export default function Gif({ title, url, id, haveTitle = false }) {
 
 
   if (title.length === 0) title = 'Gif with no name'
@@ -20,7 +20,7 @@ export default function Gif({ title, url, id, haveTitle = true }) {
       </h4>
 
       <img
-        className={`${haveTitle ? 'Gif-Img-Title' : 'Gif-Img-No-Title'}`}
+        className={`Gif-Image ${haveTitle ? 'Gif-Img-Title' : 'Gif-Img-No-Title'}`}
         loading='lazy' alt={title} src={url}
       />
       
