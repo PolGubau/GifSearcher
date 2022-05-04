@@ -3,17 +3,17 @@
 
 import { useEffect, useState, useRef } from 'react'
 
-export default function useNearScreen({ distance = '100px' } = {}) {
-
-    // Le decimos una custom distance
-
+export default function useNearScreen({ distance = '100px', externalRef, once = true } = {}) {
+    const [isNearScreen, setShow] = useState(false)
     const fromRef = useRef()
 
 
     // Dirá cuando mostrar las trending para no cargar mucho las cosas
-    const [isNearScreen, setShow] = useState(false)
     useEffect(() => {
         let observer
+
+        const element = externalRef ? externalRef.current : fromRef.current
+
         const onChange = (entries, observer) => {
 
             // tenemos una entries, ya que solo observamos un elemento, por eseo accedemos al primer valor de la array de entries
@@ -22,7 +22,9 @@ export default function useNearScreen({ distance = '100px' } = {}) {
                 setShow(true)
 
                 // Una vez entre en el vp, dejas de mirarlo
-                observer.disconnect()
+                once && observer.disconnect()
+            }else{
+                !once &&setShow(false)
             }
         }
 
@@ -38,7 +40,8 @@ export default function useNearScreen({ distance = '100px' } = {}) {
                 rootMargin: distance
             })
             // Observamos el valor actual del valor con esa referencia
-            observer.observe(fromRef.current)
+            if (element) observer.observe(element)
+
         })
 
 

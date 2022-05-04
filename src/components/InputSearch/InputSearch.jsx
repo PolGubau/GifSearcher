@@ -8,7 +8,7 @@ export default function InputSearch() {
     // Da el path y el f, una function para navegar por la web
     const [path, pushLocation] = useLocation()
 
-    console.log(path)
+    
 
     const handleSubmit = e => {
         e.preventDefault()

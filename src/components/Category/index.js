@@ -19,7 +19,7 @@ export default function Category({ name, options }) {
 
 
                 {options.map(singleCategory =>
-                    <p className={`itemCategory`} key={Date.now()}>
+                    <p className={`itemCategory`}>
                           
                         <Link to={`/search/${singleCategory}`} >
                              {singleCategory} 
