@@ -7,7 +7,7 @@ import { Link } from 'wouter'
 import InputSearch from 'components/InputSearch/InputSearch'
 import TrendingSearches from 'components/TrendingSearches/TrendingSearches'
 import useNearScreen from 'hooks/useNearScreen'
-import debounce from 'just-debounce-it'
+import throttle from 'just-throttle'
 
 
 
@@ -22,7 +22,7 @@ export default function SearchResults({ params }) {
 
 
 // UseCallBack guarda el valor de la función que tiene dentro así no tiene que volver a crearla
-    const debounceHandleNextPage = useCallback(debounce(
+    const debounceHandleNextPage = useCallback(throttle(
         () => setPage(prevPage => prevPage + 1), 200
     ),[])
 
@@ -34,8 +34,8 @@ export default function SearchResults({ params }) {
 
 
     return <>
-        <InputSearch />
         <div className='App-Main'>
+        <InputSearch />
 
             <div className='App-Results'>
                 <div>

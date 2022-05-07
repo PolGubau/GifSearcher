@@ -1,11 +1,13 @@
-import React from 'react'
-import './App.css';
+import React, { Suspense } from 'react'
+import staticContext from './context/staticContext';
+import SearchResults from './Pages/SearchResults/index';
 import Home from './Pages/Home/index';
 import Detail from './Pages/Detail/index';
-import SearchResults from './Pages/SearchResults/index';
 import { Link, Route } from "wouter";
-import staticContext from './context/staticContext';
 import { GifsContextProvider } from './context/GifsContext';
+import './App.css';
+
+const HomePage=React.lazy(()=>import('./Pages/Home'))
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
     <staticContext.Provider value={{ dev: 'Pol' }}>
 
       <div className="App">
+        <Suspense fallback={null}>
         <section className='App-content'>
           <Link to='/'><h1>Iván's Gifs</h1></Link>
 
@@ -22,7 +25,7 @@ function App() {
 
             <Route
               path='/'
-              component={Home} />
+              component={HomePage} />
             <Route
               path='/search/:keyword'
               component={SearchResults} />
@@ -33,6 +36,7 @@ function App() {
 
 
         </section>
+        </Suspense>
       </div>
     </staticContext.Provider >
   );
