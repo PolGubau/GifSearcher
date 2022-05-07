@@ -34,8 +34,8 @@ export default function SearchResults({ params }) {
 
 
     return <>
-        <div className='App-Main'>
         <InputSearch />
+        <div className='App-Main'>
 
             <div className='App-Results'>
                 <div>

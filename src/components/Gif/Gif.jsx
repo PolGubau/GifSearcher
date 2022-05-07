@@ -3,7 +3,7 @@ import { Link } from "wouter";
 
 import './Gif.css';
 
-export default function Gif({ title, url, id, haveTitle = false }) {
+function Gif({ title, url, id, haveTitle = false }) {
 
 
   if (title.length === 0) title = 'Gif with no name'
@@ -29,3 +29,5 @@ export default function Gif({ title, url, id, haveTitle = false }) {
 
   )
 }
+
+export default React.memo(Gif)
